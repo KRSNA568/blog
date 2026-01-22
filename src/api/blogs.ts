@@ -1,4 +1,4 @@
-import type { Blog, BlogsResponse, BlogResponse, CreateBlogInput } from '@/types/blog';
+import type { BlogsResponse, BlogResponse, CreateBlogInput } from '@/types/blog';
 
 const API_BASE_URL = 'http://localhost:3001';
 
