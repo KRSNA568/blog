@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { useParams } from 'react-router-dom';
 import { HeroSection } from '@/components/HeroSection';
 import { BlogSidebar } from '@/components/BlogSidebar';
@@ -15,12 +16,16 @@ export function HomePage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Sidebar - Blog List */}
           <aside className="lg:col-span-4">
-            <BlogSidebar />
+            <Suspense fallback={<div className="text-center p-4">Loading articles...</div>}>
+              <BlogSidebar />
+            </Suspense>
           </aside>
 
           {/* Main Content - Blog Detail */}
           <section className="lg:col-span-8">
-            <BlogDetail blogId={blogId} />
+            <Suspense fallback={<div className="text-center p-8">Loading article...</div>}>
+              <BlogDetail blogId={blogId} />
+            </Suspense>
           </section>
         </div>
       </div>

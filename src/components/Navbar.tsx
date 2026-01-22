@@ -26,7 +26,7 @@ export function Navbar() {
           <div className="hidden md:flex items-center space-x-8">
             <a
               href="#tools"
-              className="text-text-secondary hover:text-primary transition-colors duration-200 font-medium"
+              className="text-text-secondary hover:text-primary transition-colors duration-200 font-medium focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded"
             >
               Tools
             </a>
@@ -67,7 +67,7 @@ export function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={toggleMobileMenu}
-            className="md:hidden p-2 text-text-secondary hover:text-primary transition-colors"
+            className="md:hidden p-2 text-text-secondary hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary rounded"
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isMobileMenuOpen}
           >

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import type { FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCreateBlog } from '@/hooks/useCreateBlog';
+import { useEventTracking } from '@/hooks/useAnalytics';
 import type { CreateBlogInput } from '@/types/blog';
 
 const CATEGORY_OPTIONS = [
@@ -18,6 +19,7 @@ const CATEGORY_OPTIONS = [
 export function BlogCreateForm() {
   const navigate = useNavigate();
   const { mutate: createBlog, isPending, isError, error } = useCreateBlog();
+  const { trackEvent } = useEventTracking();
 
   const [formData, setFormData] = useState({
     title: '',
@@ -133,6 +135,12 @@ export function BlogCreateForm() {
 
     createBlog(blogData, {
       onSuccess: (newBlog) => {
+        // Track successful blog creation
+        trackEvent('blog_created', {
+          blogId: newBlog.id,
+          categories: selectedCategories,
+          contentLength: blogData.content.length,
+        });
         // Redirect to the newly created blog
         navigate(`/blogs/${newBlog.id}`);
       },
@@ -152,7 +160,7 @@ export function BlogCreateForm() {
         </p>
 
         {isError && (
-          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg" role="alert" aria-live="polite">
             <p className="text-sm text-red-600">
               {error?.message || 'Failed to create article. Please try again.'}
             </p>
@@ -171,7 +179,7 @@ export function BlogCreateForm() {
               name="title"
               value={formData.title}
               onChange={handleInputChange}
-              className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary ${
+              className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 transition-shadow ${
                 validationErrors.title ? 'border-red-500' : 'border-gray-300'
               }`}
               placeholder="Enter a compelling title..."
