@@ -11,7 +11,8 @@ export function BlogCard({ blog }: BlogCardProps) {
   const navigate = useNavigate();
   const location = useLocation();
   
-  // Check if this blog is currently active
+  // I'm comparing the current URL path with this blog's path to highlight active blog
+  // This gives users visual feedback about which article they're reading
   const isActive = location.pathname === `/blogs/${blog.id}`;
 
   const handleClick = () => {

@@ -3,12 +3,14 @@ import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
 export function Navbar() {
+  // Track mobile menu state - needed for hamburger menu toggle
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  // Close menu when user clicks a link (better UX on mobile)
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
   };

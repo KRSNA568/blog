@@ -1,10 +1,7 @@
 import { formatDistanceToNow, format } from 'date-fns';
 
-/**
- * Format ISO date string to readable format
- * @param dateString - ISO-8601 date string
- * @returns Formatted date string (e.g., "Jan 15, 2026")
- */
+// Convert ISO date to readable format like "Jan 15, 2026"
+// I'm using date-fns because it's lighter than moment.js
 export function formatDate(dateString: string): string {
   try {
     const date = new Date(dateString);
@@ -15,11 +12,7 @@ export function formatDate(dateString: string): string {
   }
 }
 
-/**
- * Format ISO date string to relative time
- * @param dateString - ISO-8601 date string
- * @returns Relative time string (e.g., "2 days ago")
- */
+// Show relative time like "2 days ago" - better UX for recent posts
 export function formatRelativeDate(dateString: string): string {
   try {
     const date = new Date(dateString);

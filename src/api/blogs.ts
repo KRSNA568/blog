@@ -2,10 +2,8 @@ import type { BlogsResponse, BlogResponse, CreateBlogInput } from '@/types/blog'
 
 const API_BASE_URL = 'http://localhost:3001';
 
-/**
- * Fetch all blogs from the API
- * @returns Promise<BlogsResponse> - Array of all blogs
- */
+// Fetch all blogs from JSON Server
+// Returns array of blog objects that I then map over in BlogSidebar
 export async function fetchBlogs(): Promise<BlogsResponse> {
   try {
     const response = await fetch(`${API_BASE_URL}/blogs`);
@@ -17,6 +15,8 @@ export async function fetchBlogs(): Promise<BlogsResponse> {
     const data: BlogsResponse = await response.json();
     return data;
   } catch (error) {
+    // I'm checking if it's an Error instance before accessing .message
+    // to avoid TypeScript unknown type issues
     if (error instanceof Error) {
       throw new Error(`Error fetching blogs: ${error.message}`);
     }
@@ -24,11 +24,7 @@ export async function fetchBlogs(): Promise<BlogsResponse> {
   }
 }
 
-/**
- * Fetch a single blog by ID
- * @param id - Blog ID to fetch
- * @returns Promise<BlogResponse> - Single blog object
- */
+// Get single blog by ID - used in BlogDetail component
 export async function fetchBlogById(id: number): Promise<BlogResponse> {
   try {
     const response = await fetch(`${API_BASE_URL}/blogs/${id}`);

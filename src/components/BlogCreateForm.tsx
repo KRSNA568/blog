@@ -5,6 +5,7 @@ import { useCreateBlog } from '@/hooks/useCreateBlog';
 import { useEventTracking } from '@/hooks/useAnalytics';
 import type { CreateBlogInput } from '@/types/blog';
 
+// These are the categories relevant to CA professionals based on the assignment brief
 const CATEGORY_OPTIONS = [
   'FINANCE',
   'TAX',
@@ -21,6 +22,7 @@ export function BlogCreateForm() {
   const { mutate: createBlog, isPending, isError, error } = useCreateBlog();
   const { trackEvent } = useEventTracking();
 
+  // Main form fields - keeping it simple with just strings
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -28,7 +30,9 @@ export function BlogCreateForm() {
     coverImage: '',
   });
 
+  // Separate state for categories since users can select multiple
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  // Storing validation errors as object so I can show errors for specific fields
   const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
 
   const validateForm = (): boolean => {

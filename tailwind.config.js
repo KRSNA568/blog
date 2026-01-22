@@ -6,17 +6,19 @@ export default {
   ],
   theme: {
     extend: {
+      // Custom color palette from the design doc
       colors: {
-        primary: '#5D5CDE',
-        'bg-secondary': '#F8F9FB',
-        'text-primary': '#111827',
-        'text-secondary': '#6B7280',
-        'accent-blue': '#EFF6FF',
+        primary: '#5D5CDE', // purple - used for buttons and accents
+        'bg-secondary': '#F8F9FB', // light gray background
+        'text-primary': '#111827', // almost black for main text
+        'text-secondary': '#6B7280', // gray for secondary text
+        'accent-blue': '#EFF6FF', // light blue for badges
         'footer-dark': '#111827',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
       },
+      // Typography system from the design requirements
       fontSize: {
         'display-1': ['42px', { lineHeight: '1.2', fontWeight: '700' }],
         'display-2': ['36px', { lineHeight: '1.2', fontWeight: '700' }],

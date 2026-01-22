@@ -11,8 +11,9 @@ export function BlogSidebar() {
       <div className="sticky top-20">
         <h2 className="text-heading-1 text-text-primary mb-6">Latest Articles</h2>
         
+        {/* Scrollable container for blog cards - limited height to keep it in viewport */}
         <div className="bg-white rounded-lg border border-gray-200 max-h-[calc(100vh-200px)] overflow-y-auto">
-          {/* Loading State */}
+          {/* Show skeleton loaders while fetching data */}
           {isLoading && (
             <div className="divide-y divide-gray-100">
               {Array.from({ length: 5 }).map((_, i) => (

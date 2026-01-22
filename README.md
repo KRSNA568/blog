@@ -1,60 +1,73 @@
-# CA Monk Blog
+# CA Monk Blog Platform
 
-A modern blog platform for chartered accountants built with React, TypeScript, and TanStack Query.
+This is a blog application I built for chartered accountants. It uses React with TypeScript and includes features for reading and creating blog posts.
 
-## Features
+## What It Does
 
-- Browse and read blog articles with master-detail layout
-- Create new blog posts with form validation
-- Responsive design with mobile menu
-- Real-time updates with TanStack Query
-- Loading skeletons and error handling
+The app shows a list of blog articles on the left side and displays the full article when you click on one. You can also create new blog posts through a form. I added a mobile menu that works on smaller screens and included loading states while data fetches.
 
-## Tech Stack
+## Technologies Used
 
-- React 19 + TypeScript 5 + Vite 7
-- TanStack Query 5 (state management)
-- Tailwind CSS 3 (styling)
-- React Router 7 (routing)
-- JSON Server (mock API)
+I used these specific versions based on the assignment requirements:
+- React 19 with TypeScript 5 for the frontend
+- Vite 7 as the build tool
+- TanStack Query 5 to handle data fetching and caching
+- Tailwind CSS 3 for styling components
+- React Router 7 for navigation between pages
+- JSON Server as a mock backend API
 
-## Quick Start
+## How to Run It
 
+First, install the dependencies:
 ```bash
-# Install dependencies
 npm install
+```
 
-# Start dev servers (frontend + API)
+Then start both the frontend and API server together:
+```bash
 npm run dev:all
 ```
 
-Visit `http://localhost:5173`
+The app will open at `http://localhost:5173` and the API runs on port 3001.
 
-## Available Scripts
+## Commands I Set Up
 
-- `npm run dev` - Start frontend (port 5173)
-- `npm run server` - Start API (port 3001)
-- `npm run dev:all` - Start both servers
-- `npm run build` - Build for production
+Here are the npm scripts in package.json:
+- `npm run dev` - Runs just the Vite frontend server
+- `npm run server` - Runs just the JSON Server backend
+- `npm run dev:all` - Runs both servers at once using concurrently
+- `npm run build` - Creates production build in dist folder
 
-## API Endpoints
+## API Structure
 
-- `GET /blogs` - All blogs
-- `GET /blogs/:id` - Single blog
-- `POST /blogs` - Create blog
+The JSON Server provides these endpoints at localhost:3001:
+- `GET /blogs` - Returns array of all blog posts
+- `GET /blogs/:id` - Returns single blog post by ID
+- `POST /blogs` - Creates new blog post (auto-generates ID and timestamp)
 
-## Project Structure
+## Code Organization
+
+I organized the source code like this:
 
 ```
 src/
-├── api/          # API service layer
-├── components/   # React components
-├── hooks/        # Custom hooks
-├── pages/        # Route pages
-└── types/        # TypeScript types
+├── api/          # Contains fetchBlogs, fetchBlogById, createBlog functions
+├── components/   # All React components (Navbar, BlogCard, BlogDetail, etc.)
+├── hooks/        # Custom hooks like useBlogs, useBlog, useCreateBlog
+├── pages/        # HomePage, CreateBlogPage, NotFoundPage
+└── types/        # TypeScript interfaces for Blog and API responses
 ```
 
-## License
+Key implementation details:
+- Used TanStack Query hooks in components to fetch and cache blog data
+- Set up React Router with routes for home, blog detail, and create pages
+- Created a BlogSidebar component that maps through blogs and renders BlogCard for each
+- BlogDetail parses the content string and renders paragraphs with headings
+- Form validation in BlogCreateForm checks title length and requires at least one category
 
-Assignment for CA Monk
+## Assignment Notes
+
+This project fulfills the CA Monk assignment requirements. I implemented all mandatory technologies exactly as specified in the PRD. The db.json file has 7 sample blog articles about accounting topics that I populated for testing.
+
+Built by Krishna Mahajan for CA Monk assignment submission.
 ```
