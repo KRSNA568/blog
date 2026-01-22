@@ -1,0 +1,99 @@
+This design document provides a comprehensive breakdown of the **CA Monk Blog** user interface as shown in the provided image.
+
+---
+
+# Design Document: CA Monk Blog Platform
+
+## 1. Project Overview
+
+* **Platform Name:** CA Monk Blog
+* **Target Audience:** Chartered Accountants (CAs), finance students, and accounting professionals.
+* **Core Objective:** To provide a clean, professional, and content-rich environment for industry news, career advice, and technical updates in the fintech and accounting sectors.
+
+## 2. Visual Identity & Branding
+
+### 2.1 Color Palette
+
+* **Primary (Action):** `#5D5CDE` (Medium Purple) - Used for buttons, active state indicators, and icons.
+* **Background (Body):** `#FFFFFF` (White) - Main content area.
+* **Background (Secondary):** `#F8F9FB` (Off-white/Light Grey) - Used for info boxes and sidebar card backgrounds.
+* **Typography (Primary):** `#111827` (Near Black) - Main headings and body text.
+* **Typography (Secondary):** `#6B7280` (Medium Grey) - Subheadings, metadata, and body text in sidebars.
+* **Accent/Alert:** `#EFF6FF` (Light Blue) - Used for the blockquote/callout background.
+* **Footer Background:** `#111827` (Dark Charcoal/Black).
+
+### 2.2 Typography
+
+* **Font Family:** Clean Sans-serif (likely *Inter* or *Roboto*).
+* **Scale:**
+* **H1 (Article Title):** 36pt - 42pt, Bold.
+* **H2 (Section Headings):** 24pt - 28pt, Semi-bold.
+* **Body Text:** 16pt, Regular (Line height: 1.6 for readability).
+* **Metadata/Sidebar Text:** 12pt - 14pt.
+
+
+
+## 3. Layout and Structure
+
+### 3.1 Grid System
+
+The layout uses a standard responsive grid (likely 12 columns).
+
+* **Navigation/Hero:** Full width.
+* **Content Area:** Split into a two-column layout (approx. 30/70 split).
+* **Left Sidebar:** 3 or 4 columns wide.
+* **Main Content:** 8 or 9 columns wide.
+
+
+
+### 3.2 Navigation Bar
+
+* **Logo:** Left-aligned.
+* **Links:** Centered (Tools, Practice, Events, Job Board, Points). Hover state: Slight color shift or underline.
+* **CTA:** "Profile" button, right-aligned, solid purple background.
+
+### 3.3 Hero Section
+
+* Centered text block.
+* Headline: "CA Monk Blog" (High emphasis).
+* Sub-headline: Descriptive text about the blog’s purpose.
+
+## 4. Component Breakdown
+
+### 4.1 "Latest Articles" Sidebar Cards
+
+* **Structure:** Icon + Category (Top Left), Timestamp (Top Right), Title (Middle), Short Snippet (Middle), Tag (Bottom Left).
+* **Active State:** The currently viewed article is highlighted with a 4px solid purple left border.
+
+### 4.2 Main Article View
+
+* **Feature Image:** High-quality, conceptual photography with an aspect ratio of roughly 16:9.
+* **Article Header:** * Category (Purple text).
+* Read time (Small text).
+* H1 Title.
+* "Share Article" Button (Solid purple with icon).
+
+
+* **Metadata Box:** Horizontal layout showing Category, Read Time, and Date with light grey vertical dividers.
+* **Blockquote/Callout:** Distinguishable via a light blue background and a thicker blue left border.
+* **Author Attribution:** Located at the bottom. Includes a circular avatar, name, title, and social engagement icons (Like/Comment).
+
+### 4.3 Footer
+
+* **Four-column layout:** 1.  Brand/About: Logo, mission statement, copyright.
+2.  Resources: Internal links.
+3.  Platform: Internal links.
+4.  Connect: Social media links.
+* **Legal Strip:** Privacy Policy and Terms of Service at the bottom right.
+
+## 5. User Experience (UX) Features
+
+* **Readability:** High contrast and generous white space to prevent cognitive overload.
+* **Navigation:** Sticky or easily accessible header.
+* **Contextual Awareness:** The sidebar allows users to see other "Latest Articles" without navigating away from the current page.
+* **Hierarchy:** Clear visual distinction between the main story and secondary content.
+
+## 6. Interaction Notes
+
+* **Hover States:** Article cards should elevate slightly or change background color on hover.
+* **Responsive Behavior:** On mobile, the sidebar should stack below the main content or move into an off-canvas "Related Articles" menu. The 70/30 split should collapse to a single column.
